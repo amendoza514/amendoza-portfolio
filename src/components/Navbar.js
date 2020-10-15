@@ -10,7 +10,7 @@ function Navbar() {
               <div className="navbar-container container">
                 <Link to='/' className="navbar-logo">
                     WELCOME
-                    {/* <MdFingerprint className='navbar-icon'></MdFingerprint> */}
+                    <MdFingerprint className='navbar-icon' />
                 </Link>
                 <div className="menu-icon">
                     
