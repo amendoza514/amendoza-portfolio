@@ -10,7 +10,8 @@ function Navbar() {
     let [click, setClick] = useState(false)
     let [button, setButton] = useState(true);
 
-    let handleClick = () => setClick(!click);
+    // let handleClick = () => setClick(!click);
+    // unnecessary code
 
     let showButton = () => {
         if (window.innerWidth <= 960) {
@@ -25,44 +26,29 @@ function Navbar() {
     return (
       <>
         <IconContext.Provider value={{ color: "#fff" }}>
+            {/* ^This is setting up default icon color for all fontAwesome, change further with css on class */}
           <div className="navbar">
             <div className="navbar-container container">
-              <Link
-                to="/"
-                className="navbar-logo"
-                onClick={() => setClick(false)}
-              >
+              <Link to="/" className="navbar-logo" onClick={() => setClick(false)} >
                 <MdFingerprint className="navbar-icon" />
                 ALEX MENDOZA
               </Link>
-              <div className="menu-icon" onClick={handleClick}>
+              <div className="menu-icon" onClick={() => setClick(!click)}>
                 {click ? <FaTimes /> : <FaBars />}
               </div>
               <ul className={click ? "nav-menu active" : "nav-menu"}>
                 <li className="nav-item">
-                  <Link
-                    to="/"
-                    className="nav-links"
-                    onClick={() => setClick(false)}
-                  >
+                  <Link to="/" className="nav-links" onClick={() => setClick(false)} >
                     Home
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link
-                    to="/projects"
-                    className="nav-links"
-                    onClick={() => setClick(false)}
-                  >
+                  <Link to="/projects" className="nav-links" onClick={() => setClick(false)} >
                     Projects
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link
-                    to="/services"
-                    className="nav-links"
-                    onClick={() => setClick(false)}
-                  >
+                  <Link to="/services" className="nav-links" onClick={() => setClick(false)} >
                     Services
                   </Link>
                 </li>
@@ -73,10 +59,7 @@ function Navbar() {
                     </Link>
                   ) : (
                     <Link to="/signup" className="button-link">
-                      <Button
-                        buttonStyle="button--outline"
-                        buttonSize="button--mobile"
-                      >
+                      <Button buttonStyle="button--outline" buttonSize="button--mobile" >
                         Contact Me Mobile
                       </Button>
                     </Link>
